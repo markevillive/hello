@@ -1,5 +1,5 @@
 Hello, World!!
 Hello, Git!!
-New Row.
-
+- Добавлен файл index.html
+- 
 
