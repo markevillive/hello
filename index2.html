@@ -129,7 +129,7 @@
 						</p>	
 							<div class="list-group">
 								<div class="list-group-item">
-									<h4 class="list-group-item-heading">Например, требуется переименовать удаленную ветку <span class="badge border-danger">fixerror</span>  в новое имя <span class="badge badge-success">to_delete</span></h4>
+									<h4 class="list-group-item-heading">Например, требуется переименовать удаленную ветку <span class="badge badge-danger">fixerror</span>  в новое имя <span class="badge badge-success">to_delete</span></h4>
 									<p class="list-group-item-text">
 										Создаем локальную копию ветки <code>fixerror</code> под именем <code>to_delete</code>:<br>
 										<kbd>git branch to_delete origin/fixerror</kbd><br>
@@ -168,8 +168,21 @@
 							Определить, на какой ветке мы находимся можно при помощи команд <kbd>git status</kbd> и <kbd>git branch</kbd>. 
 						</p>
 						<h3>Откладывание результатов при помощи <span class="badge badge-primary">git stash</span></h3>
+						<p class="lead">
+							Иногда возникает необходимость перейти на другую ветку, не делая коммит. Если просто выполнить команду <kbd>git checkout</kbd>, незафиксированные изменения перейдут в другую ветку.
+						</p>
 						<p>
-							
+							чтобы избежать этого, нужно добавить эти изменения в индекс командой <kbd>git add .</kbd>, и выполнить команду <kbd>git stash</kbd>. Текущая ветка будет очищена от изменений, однако, они будут не потеряны, а сохранятся в стэш-листе. Просмотреть их можно, выполнив команду <kbd>git stash list</kbd><br>
+						</p>
+						<p>
+							Вернуть данные из stash можно вернувшись на исходную ветку, и выполнив команду <kbd>git stash apply</kbd>. Спрятанные изменения вернутся в неиндексированном виде.
+						</p>
+						<p>
+							Команду <kbd>git stash</kbd> можно выполнять несколько раз на разных ветках. Каждый раз в стэш-лист будет добавляться новая запись, которую можно будет найти по команде <kbd>git stash list</kbd>. При выполнении команды <kbd>git stash apply</kbd> по умолчанию извлекается хронологически последняя запись, однако, при необходимости можно извлечь нужную запись указав в команде ее номер:<br>
+							<kbd>git stash apply stash@{3}</kbd><br>.
+						</p>
+						<p>
+							Держать в стэше слишком много записей не стоит. Очистить стэш можно, выполнив команду <kbd>git stash drop</kbd>.
 						</p>
 					</article>
 					<article class="border border-danger">
