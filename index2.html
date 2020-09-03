@@ -10,14 +10,14 @@
 	<div class="container-fluid">
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<a class="navbar-brand" href="#">Learn Git</a>
+				<a class="navbar-brand" href="#"><h1>Learn Git</h1></a>
 			</nav>
 		</header>
 		<div class="container">
 			<div class="row">
 				<div class="col">
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Command line</span></h2>
+						<h2>Lesson 1 <span class="badge badge-primary">Command line</span></h2>
 						<p class="lead">
 							Командная строка необходима при работе с Git.
 						</p>
@@ -26,61 +26,138 @@
 						</p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 2 <span class="badge badge-primary">Local work with Git-repository</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 3 <span class="badge badge-primary">Basic operations</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 4 <span class="badge badge-primary">History of the Git-project</span></h2>
+						<h3>Просмотр истории.</h3>
+						<p>
+							Посмотреть историю git проекта можно при помощи команды <br><kbd>git log</kbd>.<br> 
+							Эта команда возвращает список коммитов в хронологическом порядке - от более свежих к более ранним.<br>
+							Для выхода из режима просмотра истории нужно нажать <br> <kbd>q</kbd>.<br>
+							По умолчанию выводится хэш-сумма, автор коммита, дата и комментарий. <br>
+							Ограничить количество выводимых коммитов можно, добавив  в конец команды минус и желаемое количество выводимых коммитов, например:<br>
+							<kbd>git log -2</kbd><br>
+							Для отображения более подробной информации добавляется параметр <kbd>p</kbd>, например:<br>
+							<kbd>git log -2 -p</kbd>. <br>
+							Чтобы отобразить статистику по каждому коммиту добавляется параметр <kbd>stat</kbd>, например:<br>
+							<kbd>git log -2 --stat</kbd>.<br>
+							При этом под каждым коммитом добавляется список измененных файлов, а так же - сколько строк было добавленно и удалено. Каждая добавленная строка обозначается зеленым плюсом, а каждая удаленная - красным минусом.<br>
+							Еще более сократить вывод лога можно при помощи параметра <kbd>pretty</kbd> и аргумента <kbd>oneline</kbd>. Тогда коммиты будут выводиться в одну строку:<br>
+							<kbd>git log --pretty=oneline</kbd>.<br>
+						</p>
+						<h3>Хэш-сумма.</h3>
+						<p>
+							Каждый коммит снабжается уникальной хэш-суммой - это строка длиной 40 символов в шестнадцатеричном формате. К коммиту можно всегда обратиться по его хэш-сумме.
+						</p>
+						<h3>Параметры <span class="badge badge-success">since</span> и <span class="badge badge-success">until</span></h3>
+						<p>
+							Для поиска коммитов в определенном временном интервале можно использовать параметры <kbd>since</kbd> и <kbd>until</kbd>.<br>
+							Параметр <kbd>until</kbd> определяет время, начиная с которого мы начинаем поиск, а параметр <kbd>since</kbd> - до какого момента в прошлом мы ищем коммиты. Например:<br>
+							<kbd>git log --until=1.hour </kbd><br>
+							<kbd>git log --since=2.hour</kbd><br>
+						</p>
+						<h3>Игнорирование файлов. Файл <span class="badge badge-success">.gitignore</span></h3>
+						<p>
+							Для того, чтобы git не индексировал тот или иной файл, в корне гит-проекта создается файл <kbd>.gitignore</kbd>, и в него вносятся файлы, которые не нужно отслеживать. Корректно этот файл можно сгенерировать на сайте <a href="https://www.toptal.com/developers/gitignore">Gitignore.io</a>
+						</p>
+						<h3>Добавление пустых папок в гит-проект.</h3>
+						<p>
+							Git игнорирует добавленную в проект пустую папку. Чтобы проиндексировать такую папку, в нее добавляется пустой файл <kbd>.keep</kbd>. Имя файла начинается с точки, поэтому Unix-система рассматривает его как скрытый, но git все равно проиндексирует содержащую его папку.
+						</p>
+					</article>
+					<article class="border border-danger">
+						<h2>Lesson 5 <span class="badge badge-primary">Lesson name</span></h2>
+							<h3>Создание новых веток</h3>
+							<p>
+								Ветка - хронологическая последовательност коммитов. список имеющихся в проекте веток можно вывести командой<br>
+								<kbd>git branch</kbd>.<br>
+								Новую ветку можно создать, если в конце этой команды указать название создваемой ветки, например:<br>
+								<kbd>git branch secondary</kbd>.<br>
+								Для переключения на новую ветку нужно воспользоваться командой <kbd>checkout</kbd> и указать название ветки, например:<br>
+								<kbd>git checkout secondary</kbd>.<br>
+								Процесс создания новой ветки (с одновременным переходом на нее) можно упростить, использовав команду <kbd>checkout</kbd> с ключом <kbd>-b</kbd>. Например:<br>
+								<kbd>git checkout -b test</kbd><br>
+								Создает новую ветку test и сразу же переводит на нее пользователя.
+							</p>
+							<h3>Переименование и удаление веток</h3>
+							<p>
+								Переименовать существующую ветку можно использовам после команды branch ключ -m , затем через пробел - текущее имя ветки и ее новое имя. Например:<br>
+								<kbd>git branch -m secondary primary</kbd>.<br>
+							</p>
+							<p>
+								Для удаления ветки следует воспользоваться ключом -D. Например:<br>
+								
+							</p>
+					</article>
+					<article class="border border-danger">
+						<h2>Lesson 6 <span class="badge badge-primary">Creating a remote git repository</span></h2>
+							<h3>Добавление проекта на Github</h3>
+								<p>
+									Для добавления локального git-проекта на Github, нужно залогинившись на сайте добавить новый репозиторий, затем скопировав предложенные команды, ввести их в командной строке. Добавление локальных коммитов на Github осуществляется командой.<br>
+									<kbd>git push -u origin master</kbd><br>,
+									после которой git попросит ввести логин и пароль Github.
+								</p>
+								<h3>Синхронизация локального репозитория с удаленным</h3>
+								<p>
+									Для того, чтобы добавить на локальный проект изменения с удаленного репозитория выполняется команда:<br>
+									<kbd>git pull origin master</kbd><br>
+								</p>
+					</article>
+					<article class="border border-danger">
+						<h2>Lesson 7 <span class="badge badge-primary">Remote branches</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 8 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 9 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 10 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 11 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
-						<p></p>
-					</article>
-					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
-						<p></p>
-					</article>
-					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 12 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article><article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 13 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 14 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article>
 					<article class="border border-danger">
-						<h2>Lesson 1<span class="badge badge-primary">Lesson name</span></h2>
+						<h2>Lesson 15 <span class="badge badge-primary">Lesson name</span></h2>
 						<p></p>
 					</article>
 					
 				</div>	
 			</div>
-		</div>
 		
+		</div>
+		<footer>
+			<div class="navbar-fixed-bottom row-fluid">
+				<div class="navbar-inner">
+					<div class="container">
+						<h6>&copy;Marc Shreder 2020</h6>
+					</div>
+				</div>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>
