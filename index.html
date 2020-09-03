@@ -24,22 +24,23 @@
 				<h2>Lesson 3 <span class="badge badge-primary">Basic operations</span></h2>
 				<p></p>
 			</article>
+		<div class="container">
 			<article class="border border-danger">
 				<h2>Lesson 4 <span class="badge badge-primary">History of the Git-project</span></h2>
 				<h3>Просмотр истории.</h3>
-				<p> Посмотреть историю git проекта можно при помощи команды <br><code>git log</code>.<br> 
+				<p> Посмотреть историю git проекта можно при помощи команды <br><kbd>git log</kbd>.<br> 
 					Эта команда возвращает список коммитов в хронологическом порядке - от более свежих к более ранним.<br>
-					Для выхода из режима просмотра истории нужно нажать <br> <code>q</code>.<br>
+					Для выхода из режима просмотра истории нужно нажать <br> <kbd>q</kbd>.<br>
 					По умолчанию выводится хэш-сумма, автор коммита, дата и комментарий. <br>
 					Ограничить количество выводимых коммитов можно, добавив  в конец команды минус и желаемое количество выводимых коммитов, например:<br>
-					<code>git log -2</code><br>
-					Для отображения более подробной информации добавляется параметр <code>p</code>, например:<br>
-					<code>git log -2 -p</code>. <br>
-					Чтобы отобразить статистику по каждому коммиту добавляется параметр <code>stat</code>, например:<br>
-					<code>git log -2 --stat</code>.<br>
+					<kbd>git log -2</kbd><br>
+					Для отображения более подробной информации добавляется параметр <kbd>p</kbd>, например:<br>
+					<kbd>git log -2 -p</kbd>. <br>
+					Чтобы отобразить статистику по каждому коммиту добавляется параметр <kbd>stat</kbd>, например:<br>
+					<kbd>git log -2 --stat</kbd>.<br>
 					При этом под каждым коммитом добавляется список измененных файлов, а так же - сколько строк было добавленно и удалено. Каждая добавленная строка обозначается зеленым плюсом, а каждая удаленная - красным минусом.<br>
-					Еще более сократить вывод лога можно при помощи параметра <code>pretty</code> и аргумента <code>oneline</code>. Тогда коммиты будут выводиться в одну строку:<br>
-					<code>git log --pretty=oneline</code>.<br>
+					Еще более сократить вывод лога можно при помощи параметра <kbd>pretty</kbd> и аргумента <kbd>oneline</kbd>. Тогда коммиты будут выводиться в одну строку:<br>
+					<kbd>git log --pretty=oneline</kbd>.<br>
 				</p>
 					<h3>Хэш-сумма.</h3>
 				<p>
@@ -47,57 +48,68 @@
 				</p>
 				<h3>Параметры <span class="badge badge-success">since</span> и <span class="badge badge-success">until</span></h3>	
 				<p>
-					Для поиска коммитов в определенном временном интервале можно использовать параметры <code>since</code> и <code>until</code>.<br>
-					Параметр <code>until</code> определяет время, начиная с которого мы начинаем поиск, а параметр <code>since</code> - до какого момента в прошлом мы ищем коммиты. Например:<br>
-					<code>git log --until=1.hour </code><br>
-					<code>git log --since=2.hour</code><br>
+					Для поиска коммитов в определенном временном интервале можно использовать параметры <kbd>since</kbd> и <kbd>until</kbd>.<br>
+					Параметр <kbd>until</kbd> определяет время, начиная с которого мы начинаем поиск, а параметр <kbd>since</kbd> - до какого момента в прошлом мы ищем коммиты. Например:<br>
+					<kbd>git log --until=1.hour </kbd><br>
+					<kbd>git log --since=2.hour</kbd><br>
 				</p>
 				<h3>Игнорирование файлов. Файл <span class="badge badge-success">.gitignore</span></h3>
 				<p>
-					Для того, чтобы git не индексировал тот или иной файл, в корне гит-проекта создается файл <code>.gitignore</code>, и в него вносятся файлы, которые не нужно отслеживать. Корректно этот файл можно сгенерировать на сайте <a href="https://www.toptal.com/developers/gitignore">Gitignore.io</a>
+					Для того, чтобы git не индексировал тот или иной файл, в корне гит-проекта создается файл <kbd>.gitignore</kbd>, и в него вносятся файлы, которые не нужно отслеживать. Корректно этот файл можно сгенерировать на сайте <a href="https://www.toptal.com/developers/gitignore">Gitignore.io</a>
 				</p>
 				<h3>Добавление пустых папок в гит-проект.</h3>
 				<p>
-					Git игнорирует добавленную в проект пустую папку. Чтобы проиндексировать такую папку, в нее добавляется пустой файл <code>.keep</code>. Имя файла начинается с точки, поэтому Unix-система рассматривает его как скрытый, но git все равно проиндексирует содержащую его папку.
+					Git игнорирует добавленную в проект пустую папку. Чтобы проиндексировать такую папку, в нее добавляется пустой файл <kbd>.keep</kbd>. Имя файла начинается с точки, поэтому Unix-система рассматривает его как скрытый, но git все равно проиндексирует содержащую его папку.
 				</p>
-
-
-				
-			</article>
+				</article>
+		</div>		
+		<div class="container">
 			<article class="border border-danger">
 				<h2>Lesson 5 <span class="badge badge-primary">Branches</span></h2>
 				<h3>Создание новых веток</h3>
 				<p>
 					Ветка - хронологическая последовательност коммитов. список имеющихся в проекте веток можно вывести командой<br>
-					<code>git branch</code>.<br>
+					<kbd>git branch</kbd>.<br>
 					Новую ветку можно создать, если в конце этой команды указать название создваемой ветки, например:<br>
-					<code>git branch secondary</code>.<br>
-					Для переключения на новую ветку нужно воспользоваться командой <code>checkout</code> и указать название ветки, например:<br>
-					<code>git checkout secondary</code>.<br>
-					Процесс создания новой ветки (с одновременным переходом на нее) можно упростить, использовав команду <code>checkout</code> с ключом <code>-b</code>. Например:<br>
-					<code>git checkout -b test</code><br>
+					<kbd>git branch secondary</kbd>.<br>
+					Для переключения на новую ветку нужно воспользоваться командой <kbd>checkout</kbd> и указать название ветки, например:<br>
+					<kbd>git checkout secondary</kbd>.<br>
+					Процесс создания новой ветки (с одновременным переходом на нее) можно упростить, использовав команду <kbd>checkout</kbd> с ключом <kbd>-b</kbd>. Например:<br>
+					<kbd>git checkout -b test</kbd><br>
 					Создает новую ветку test и сразу же переводит на нее пользователя.
 				</p>
 				<h3>Переименование и удаление веток</h3>
 				<p>
 					Переименовать существующую ветку можно использовам после команды branch ключ -m , затем через пробел - текущее имя ветки и ее новое имя. Например:<br>
-					<code>git branch -m secondary primary</code>.<br>
+					<kbd>git branch -m secondary primary</kbd>.<br>
 				</p>
 				<p>
 					Для удаления ветки следует воспользоваться ключом -D. Например:<br>
 					
 				</p>
 			</article>
+		</div>
+		<div class="container">
 			<article class="border border-danger">
 				<h2>Lesson 6 <span class="badge badge-primary">
 Creating a remote git repository</span></h2>
 				<p></p>
 			</article>
 			<article class="border border-danger">
-				<h2>Lesson 6 <span class="badge badge-primary">
+				<h2>Lesson 7 <span class="badge badge-primary">
 Creating a remote git repository</span></h2>
-				<p></p>
+				<h3>Добавление проекта на Github</h3>
+				<p>
+					Для добавления локального git-проекта на Github, нужно залогинившись на сайте добавить новый репозиторий, затем скопировав предложенные команды, ввести их в командной строке. Добавление локальных коммитов на Github осуществляется командой.<br>
+					<kbd>git push -u origin master</kbd><br>,
+					после которой git попросит ввести логин и пароль Github.
+				</p>
+
+				<p>
+					
+				</p>
 			</article>
+		</div>	
 		</section>
 		<footer>
 			<div class="container">
